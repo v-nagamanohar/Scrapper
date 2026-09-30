@@ -1,0 +1,8 @@
+{
+  "name": "linkedin-post-scraper-clone",
+  "type": "module",
+  "dependencies": {
+    "apify": "^3.2.0",
+    "got-scraping": "^4.0.0"
+  }
+}
