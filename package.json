@@ -1,6 +1,9 @@
 {
   "name": "linkedin-post-scraper-clone",
   "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
   "dependencies": {
     "apify": "^3.2.0",
     "got-scraping": "^4.0.0"
