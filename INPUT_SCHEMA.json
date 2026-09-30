@@ -1,0 +1,18 @@
+{
+  "title": "LinkedIn Post Scraper Clone",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "cookie": { "title": "🍪 Cookies", "type": "array", "description": "JSON from Cookie-Editor extension - must contain li_at and JSESSIONID", "editor": "json", "prefill": [] },
+    "userAgent": { "title": "User agent", "type": "string", "description": "Use same User-Agent as your LinkedIn login", "prefill": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" },
+    "urls": { "title": "Source URLs", "type": "array", "description": "Search URL, Profile URL, Company URL or Post URL", "items": { "type": "string" }, "minItems": 1 },
+    "limitPerSource": { "title": "Limit per source", "type": "integer", "minimum": 1, "maximum": 1000, "description": "Max posts per URL" },
+    "scrapeUntilDate": { "title": "Scrape until date", "type": "string", "description": "YYYY-MM-DD - only with sortBy=date_posted" },
+    "deepScrape": { "title": "Scrape additional information", "type": "boolean", "default": true },
+    "rawData": { "title": "Get raw data (Advanced)", "type": "boolean", "default": false },
+    "minDelay": { "title": "Min wait duration", "type": "integer", "default": 2, "minimum": 0 },
+    "maxDelay": { "title": "Max wait duration", "type": "integer", "default": 4, "minimum": 1 },
+    "proxy": { "title": "Proxy", "type": "object", "editor": "proxy", "prefill": { "useApifyProxy": true, "apifyProxyGroups": ["RESIDENTIAL"] } }
+  },
+  "required": ["cookie", "userAgent", "urls", "proxy"]
+}
