@@ -23,8 +23,7 @@
       "description": "Supported: LinkedIn post search URL, profile URL, company URL or post URL",
       "editor": "stringList",
       "items": {
-        "type": "string",
-        "editor": "textfield"
+        "type": "string"
       },
       "minItems": 1
     },
