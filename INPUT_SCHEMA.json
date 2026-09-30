@@ -3,16 +3,86 @@
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "cookie": { "title": "🍪 Cookies", "type": "array", "description": "JSON from Cookie-Editor extension - must contain li_at and JSESSIONID", "editor": "json", "prefill": [] },
-    "userAgent": { "title": "User agent", "type": "string", "description": "Use same User-Agent as your LinkedIn login", "prefill": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" },
-    "urls": { "title": "Source URLs", "type": "array", "description": "Search URL, Profile URL, Company URL or Post URL", "items": { "type": "string" }, "minItems": 1 },
-    "limitPerSource": { "title": "Limit per source", "type": "integer", "minimum": 1, "maximum": 1000, "description": "Max posts per URL" },
-    "scrapeUntilDate": { "title": "Scrape until date", "type": "string", "description": "YYYY-MM-DD - only with sortBy=date_posted" },
-    "deepScrape": { "title": "Scrape additional information", "type": "boolean", "default": true },
-    "rawData": { "title": "Get raw data (Advanced)", "type": "boolean", "default": false },
-    "minDelay": { "title": "Min wait duration", "type": "integer", "default": 2, "minimum": 0 },
-    "maxDelay": { "title": "Max wait duration", "type": "integer", "default": 4, "minimum": 1 },
-    "proxy": { "title": "Proxy", "type": "object", "editor": "proxy", "prefill": { "useApifyProxy": true, "apifyProxyGroups": ["RESIDENTIAL"] } }
+    "cookie": {
+      "title": "🍪 Cookies",
+      "type": "array",
+      "description": "JSON exported from Cookie-Editor extension - must contain li_at and JSESSIONID",
+      "editor": "json",
+      "prefill": []
+    },
+    "userAgent": {
+      "title": "User agent",
+      "type": "string",
+      "description": "Browser User-Agent from your logged-in session",
+      "prefill": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "editor": "textfield"
+    },
+    "urls": {
+      "title": "Source URLs",
+      "type": "array",
+      "description": "Supported: LinkedIn post search URL, profile URL, company URL or post URL",
+      "editor": "stringList",
+      "items": {
+        "type": "string",
+        "editor": "textfield"
+      },
+      "minItems": 1
+    },
+    "limitPerSource": {
+      "title": "Limit per source",
+      "type": "integer",
+      "description": "Max posts per URL",
+      "minimum": 1,
+      "maximum": 1000,
+      "prefill": 20,
+      "editor": "number"
+    },
+    "scrapeUntilDate": {
+      "title": "Scrape until date",
+      "type": "string",
+      "description": "YYYY-MM-DD - only works if results sorted by date_posted",
+      "prefill": "",
+      "editor": "textfield"
+    },
+    "deepScrape": {
+      "title": "Scrape additional information",
+      "type": "boolean",
+      "description": "Fetch likes, comments, images in detail",
+      "default": true,
+      "prefill": true,
+      "editor": "checkbox"
+    },
+    "rawData": {
+      "title": "Get raw data (Advanced)",
+      "type": "boolean",
+      "default": false,
+      "prefill": false,
+      "editor": "checkbox"
+    },
+    "minDelay": {
+      "title": "Min wait duration",
+      "type": "integer",
+      "default": 2,
+      "minimum": 0,
+      "editor": "number"
+    },
+    "maxDelay": {
+      "title": "Max wait duration",
+      "type": "integer",
+      "default": 4,
+      "minimum": 1,
+      "editor": "number"
+    },
+    "proxy": {
+      "title": "Proxy",
+      "type": "object",
+      "description": "Use proxy from same country as your LinkedIn account",
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
+      },
+      "editor": "proxy"
+    }
   },
   "required": ["cookie", "userAgent", "urls", "proxy"]
 }
