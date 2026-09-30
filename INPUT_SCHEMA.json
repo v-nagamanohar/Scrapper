@@ -46,7 +46,7 @@
     "deepScrape": {
       "title": "Scrape additional information",
       "type": "boolean",
-      "description": "Fetch likes, comments, images in detail",
+      "description": "Fetch likes, comments and images in detail if true",
       "default": true,
       "prefill": true,
       "editor": "checkbox"
@@ -54,6 +54,7 @@
     "rawData": {
       "title": "Get raw data (Advanced)",
       "type": "boolean",
+      "description": "If true, push raw Voyager API response without processing",
       "default": false,
       "prefill": false,
       "editor": "checkbox"
@@ -61,6 +62,7 @@
     "minDelay": {
       "title": "Min wait duration",
       "type": "integer",
+      "description": "Minimum wait in seconds between requests",
       "default": 2,
       "minimum": 0,
       "editor": "number"
@@ -68,6 +70,7 @@
     "maxDelay": {
       "title": "Max wait duration",
       "type": "integer",
+      "description": "Maximum wait in seconds between requests",
       "default": 4,
       "minimum": 1,
       "editor": "number"
