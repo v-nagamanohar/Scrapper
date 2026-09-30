@@ -1,4 +1,4 @@
-import { Actor } from "apify";
+import { Actor, log } from "apify";
 import { gotScraping } from "got-scraping";
 
 await Actor.main(async () => {
@@ -22,7 +22,7 @@ await Actor.main(async () => {
     const sleep = ms => new Promise(r => setTimeout(r, ms));
     
     for (const sourceUrl of urls) {
-        Actor.log.info(`Scraping: ${sourceUrl}`);
+        log.info(`Scraping: ${sourceUrl}`);
         let start = 0;
         let count = 0;
         let hasMore = true;
@@ -66,7 +66,7 @@ await Actor.main(async () => {
                 }
                 if (posts.length < 10) hasMore = false;
             } catch (e) {
-                Actor.log.error(`API Error: ${e.message}`);
+                log.error(`API Error: ${e.message}`);
                 hasMore = false;
             }
             start += 10;
