@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "linkedin-post-scraper-clone",
+  "title": "LinkedIn Post Scraper Clone",
+  "description": "Reverse engineered clone of kfiWbq3boy3dWKbiL - Scrapes LinkedIn posts via Voyager API using your cookies",
+  "version": "1.0.0",
+  "Anthropic": {
+    "templateId": "empty"
+  },
+  "input": "./INPUT_SCHEMA.json",
+  "dockerfile": "./Dockerfile"
+}
